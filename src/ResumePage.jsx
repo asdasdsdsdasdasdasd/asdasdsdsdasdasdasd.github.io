@@ -3,21 +3,109 @@ import { useNavigate } from "react-router-dom";
 
 const ITEMS = [
   { id: "i", badge: "I", title: "EDUCATION", subtitle: "CUHK · CityU", rank: 1 },
-  { id: "ii", badge: "II", title: "SKILLS", subtitle: "Python · ML · LLM", rank: 2 },
-  { id: "iii", badge: "III", title: "PROJECTS", subtitle: "Go AI · NLP · Agents", rank: 3 },
-  { id: "iv", badge: "IV", title: "EXPERIENCE", subtitle: "Student · Research helper", rank: 4 },
+  { id: "ii", badge: "II", title: "SKILLS", subtitle: "Python · RL · LLM Agents", rank: 2 },
+  { id: "iii", badge: "III", title: "PROJECTS", subtitle: "World Model · Agents · LLM", rank: 3 },
+  { id: "iv", badge: "IV", title: "EXPERIENCE", subtitle: "Visutech · Hongrita", rank: 4 },
 ];
 
-const EDUCATION_ROWS = [
-  { index: "01", title: "MSc Artificial Intelligence — CUHK", status: "In Progress" },
-  { index: "02", title: "BSc Data & Systems Engineering — CityU", status: "Complete" },
-  { index: "03", title: "Database construction helper — CityU Chemistry", status: "Complete" },
-  { index: "04", title: "Target: AI / ML Engineer roles (HK)", status: "Active" },
+const SECTION_CONTENT = [
+  {
+    panelIndex: "01",
+    panelTitle: "EDUCATION LOG",
+    progress: "2/2",
+    rows: [
+      { index: "01", title: "MSc Artificial Intelligence — CUHK", status: "2025–2027" },
+      { index: "02", title: "BSc Data & Systems Engineering — CityU", status: "2021–2025" },
+    ],
+    bullets: [
+      "MSc at The Chinese University of Hong Kong — taught postgraduate programme in artificial intelligence, with coursework and research spanning deep learning, reinforcement learning, and intelligent systems.",
+      "BSc at City University of Hong Kong — data and systems engineering foundation covering machine learning, databases, software systems, and applied analytics.",
+      "Languages: fluent in English, Putonghua, and Cantonese.",
+    ],
+  },
+  {
+    panelIndex: "02",
+    panelTitle: "SKILL MATRIX",
+    progress: "3/3",
+    rows: [
+      { index: "01", title: "Core — Python, PyTorch, SQL", status: "Primary" },
+      { index: "02", title: "AI — LLM Agents, RL, Deep Learning", status: "Advanced" },
+      { index: "03", title: "Web — Vue.js, TypeScript, Crawling", status: "Applied" },
+    ],
+    bullets: [
+      "Python & PyTorch for model training, evaluation, and deployment — including world-model RL (DreamerV3), classical RL baselines, and deep learning pipelines.",
+      "LLM agent workflows: prompt design, tool use, browser automation, structured outputs, and multi-turn dialogue for real application tasks.",
+      "Vue.js and TypeScript for front-end LLM chat interfaces; web crawling and Playwright-style browser automation for data collection and agent actions.",
+      "SQL for querying and integrating operational data; comfortable working across research prototypes and production-style tooling.",
+    ],
+  },
+  {
+    panelIndex: "03",
+    panelTitle: "PROJECT ARCHIVE",
+    progress: "3/3",
+    rows: [
+      { index: "01", title: "World Model RL Race Track Simulation", status: "Complete" },
+      { index: "02", title: "OpenClaw Agent Automation", status: "Active" },
+      { index: "03", title: "AI Food Ordering Website", status: "Complete" },
+    ],
+    bullets: [
+      "World Model RL Race Track Simulation — implemented DreamerV3 in PyTorch on racecar_gym (PyBullet, SingleAgentAustria-v0). Adapted r2dreamer, trained via RSSM imagined rollouts, and benchmarked against PPO. ~20× score gain (5 → 90+) over 180k steps with LiDAR-based lap navigation.",
+      "OpenClaw Agent Automation — autonomous browser agents with DeepSeek API: JobsDB search, constraint filtering, tailored in-platform applications; Outlook Web scholarship-mail search and local archival with deduplication manifests and reusable runner scripts.",
+      "AI-powered food ordering website — Vue.js + TypeScript front end with Claude 3 Sonnet and DeepSeek-R1; 100% structured-task accuracy on Amazon Science evaluation, multi-turn dialogue handling, and deployment trade-off analysis.",
+    ],
+  },
+  {
+    panelIndex: "04",
+    panelTitle: "WORK HISTORY",
+    progress: "2/2",
+    rows: [
+      { index: "01", title: "Software Engineer — Visutech Asia Limited", status: "2025–Now" },
+      { index: "02", title: "IT Intern — Hongrita Plastics Ltd.", status: "2024 Jul–Aug" },
+    ],
+    bullets: [
+      "Software Engineer at Visutech Asia Limited (Sep 2025–present) — develop IoT and machine learning solutions for client deployments, bridging edge devices, data pipelines, and model-driven features.",
+      "IT Intern at Hongrita Plastics Ltd., Zhongshan (Jul–Aug 2024) — daily SAP operations, OA workflow development, and SQL-backed data retrieval for internal business processes.",
+      "Seeking AI / ML engineer and LLM developer roles in Hong Kong — hands-on with RL, agents, and full-stack ML tooling.",
+    ],
+  },
 ];
+
+function ResumeDetailPanel({ section }) {
+  return (
+    <div className="resume-detail-panel">
+      <div className="resume-detail-top">
+        <div className="resume-detail-top-index">{section.panelIndex}</div>
+        <div className="resume-detail-top-title">{section.panelTitle}</div>
+        <div className="resume-detail-top-progress">{section.progress}</div>
+      </div>
+
+      <div className="resume-detail-list">
+        {section.rows.map((row) => (
+          <div className="resume-detail-row" key={row.index}>
+            <div className="resume-detail-row-index">{row.index}</div>
+            <div className="resume-detail-row-title">{row.title}</div>
+            <div className="resume-detail-status">{row.status}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="resume-detail-bottom">
+        <div className="resume-detail-bottom-title">DETAILS</div>
+        <div className="resume-detail-bullets">
+          {section.bullets.map((bullet) => (
+            <div className="resume-detail-bullet" key={bullet.slice(0, 48)}>
+              - {bullet}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ResumePage({ src }) {
   const navigate = useNavigate();
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -247,7 +335,7 @@ export default function ResumePage({ src }) {
           top: 9.5vh;
           right: 4.5vw;
           width: min(39vw, 620px);
-          min-height: 74vh;
+          max-height: 82vh;
           z-index: 12;
           padding: 22px 24px 24px 24px;
           background: linear-gradient(180deg, rgba(15, 28, 105, 0.96) 0%, rgba(8, 16, 68, 0.97) 100%);
@@ -255,7 +343,9 @@ export default function ResumePage({ src }) {
           box-shadow:
             inset 0 0 0 1px rgba(133, 244, 255, 0.16),
             16px 16px 0 rgba(0, 6, 30, 0.55);
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: auto;
+          pointer-events: all;
         }
         .resume-detail-panel::before {
           content: "";
@@ -286,7 +376,7 @@ export default function ResumePage({ src }) {
         }
         .resume-detail-top-title {
           font-family: 'Anton', sans-serif;
-          font-size: 42px;
+          font-size: 38px;
           line-height: 0.92;
           letter-spacing: 1px;
         }
@@ -309,7 +399,7 @@ export default function ResumePage({ src }) {
           align-items: center;
           gap: 14px;
           min-height: 56px;
-          padding: 0 14px;
+          padding: 8px 14px;
           background: rgba(8, 18, 72, 0.96);
           clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
           box-shadow: inset 0 0 0 1px rgba(140, 239, 255, 0.12);
@@ -327,19 +417,20 @@ export default function ResumePage({ src }) {
         }
         .resume-detail-row-title {
           font-family: 'Anton', sans-serif;
-          font-size: 28px;
-          line-height: 1;
+          font-size: 22px;
+          line-height: 1.1;
           color: #f2fcff;
         }
         .resume-detail-status {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: 22px;
+          font-size: 20px;
           line-height: 1;
           letter-spacing: 1.1px;
           color: #06133b;
           background: #8df6ff;
           padding: 7px 12px;
           clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+          white-space: nowrap;
         }
         .resume-detail-bottom {
           position: relative;
@@ -359,12 +450,12 @@ export default function ResumePage({ src }) {
         .resume-detail-bullets {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 12px;
         }
         .resume-detail-bullet {
           font-family: 'Anton', sans-serif;
-          font-size: 21px;
-          line-height: 1.15;
+          font-size: 18px;
+          line-height: 1.25;
           color: #edfaff;
         }
 
@@ -404,35 +495,7 @@ export default function ResumePage({ src }) {
           ))}
         </div>
 
-        {active === 0 && (
-          <div className="resume-detail-panel">
-            <div className="resume-detail-top">
-              <div className="resume-detail-top-index">01</div>
-              <div className="resume-detail-top-title">EDUCATION LOG</div>
-              <div className="resume-detail-top-progress">7/5</div>
-            </div>
-
-            <div className="resume-detail-list">
-              {EDUCATION_ROWS.map((row) => (
-                <div className="resume-detail-row" key={row.index}>
-                  <div className="resume-detail-row-index">{row.index}</div>
-                  <div className="resume-detail-row-title">{row.title}</div>
-                  <div className="resume-detail-status">{row.status}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="resume-detail-bottom">
-              <div className="resume-detail-bottom-title">DETAILS</div>
-              <div className="resume-detail-bullets">
-                <div className="resume-detail-bullet">- MSc AI at CUHK (2025–2027); BSc at CityU (2021–2025).</div>
-                <div className="resume-detail-bullet">- Go AI with ResNet + MCTS; Yelp spatial-temporal sentiment NLP.</div>
-                <div className="resume-detail-bullet">- OpenClaw automation agents for jobs and scholarships.</div>
-              </div>
-            </div>
-          </div>
-        )}
-
+        <ResumeDetailPanel section={SECTION_CONTENT[active]} />
       </div>
     </div>
   );
