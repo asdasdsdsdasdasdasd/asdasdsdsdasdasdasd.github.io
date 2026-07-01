@@ -1,17 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ExternalPage({ src, title, subtitle, links = [] }) {
   const navigate = useNavigate();
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const onKey = (e) => {
+      if (e.key === "ArrowUp") setActive((i) => Math.max(0, i - 1));
+      if (e.key === "ArrowDown") setActive((i) => Math.min(links.length - 1, i + 1));
       if (e.key === "ArrowLeft" || e.key === "Escape" || e.key === "Backspace") navigate(-1);
-      if (e.key === "Enter" && links[0]) window.open(links[0].href, "_blank", "noopener,noreferrer");
+      if (e.key === "Enter" && links[active]) {
+        window.open(links[active].href, "_blank", "noopener,noreferrer");
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [navigate, links]);
+  }, [navigate, links, active]);
 
   return (
     <div id="menu-screen">
@@ -70,6 +75,10 @@ export default function ExternalPage({ src, title, subtitle, links = [] }) {
           transform: translateX(6px);
           background: #fff;
         }
+        .ext-link.selected {
+          background: #fff;
+          box-shadow: inset 4px 0 0 #d63232;
+        }
         .ext-hint {
           margin-top: 20px;
           font-family: 'Bebas Neue', sans-serif;
@@ -83,19 +92,20 @@ export default function ExternalPage({ src, title, subtitle, links = [] }) {
           <h1 className="ext-title">{title}</h1>
           {subtitle && <div className="ext-subtitle">{subtitle}</div>}
           <div className="ext-links">
-            {links.map((link) => (
+            {links.map((link, index) => (
               <a
                 key={link.href}
-                className="ext-link"
+                className={`ext-link${active === index ? " selected" : ""}`}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => setActive(index)}
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <div className="ext-hint">Enter to open first link · ← back</div>
+          <div className="ext-hint">↑↓ select · Enter open · ← back</div>
         </div>
       </div>
     </div>

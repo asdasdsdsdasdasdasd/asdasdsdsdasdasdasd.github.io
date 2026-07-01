@@ -19,8 +19,13 @@ const ROLES = [
 
 const ITEMS = [
   {
-    id: "github", label: "GITHUB", handle: "@asdasdsdsdasdasdasd", href: "https://github.com/asdasdsdsdasdasdasd", icon: "💻", barIcon: icon1, bars: 2, newBars: [0], counts: ["repos", "agents"],
-    links: ["github.com/asdasdsdsdasdasdasd", "github.com/asdasdsdsdasdasdasd/openclaw-agent"],
+    id: "github", label: "GITHUB", handle: "@asdasdsdsdasdasdasd", href: "https://github.com/asdasdsdsdasdasdasd", icon: "💻", barIcon: icon1, bars: 4, newBars: [0, 1], counts: ["racecar", "dann", "agents", "food"],
+    links: [
+      "github.com/asdasdsdsdasdasdasd/racecar",
+      "github.com/asdasdsdsdasdasdasd/mnist-dann",
+      "github.com/asdasdsdsdasdasdasd/openclaw-agent",
+      "github.com/asdasdsdsdasdasdasd/automated-food-ordering-website-SDSC4116",
+    ],
     stats: [
       { tag: "CODE", value: "OSS", color: "#9147ff" },
       { tag: "AI", value: "ML",  color: "#bf94ff" },

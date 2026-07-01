@@ -42,16 +42,18 @@ const SECTION_CONTENT = [
   {
     panelIndex: "03",
     panelTitle: "PROJECT ARCHIVE",
-    progress: "3/3",
+    progress: "4/4",
     rows: [
       { index: "01", title: "World Model RL Race Track Simulation", status: "Complete" },
       { index: "02", title: "OpenClaw Agent Automation", status: "Active" },
-      { index: "03", title: "AI Food Ordering Website", status: "Complete" },
+      { index: "03", title: "MNIST Domain Adaptation (DANN / CDAN-E)", status: "Complete" },
+      { index: "04", title: "AI Food Ordering Website", status: "Complete" },
     ],
     bullets: [
-      "World Model RL Race Track Simulation — implemented DreamerV3 in PyTorch on racecar_gym (PyBullet, SingleAgentAustria-v0). Adapted r2dreamer, trained via RSSM imagined rollouts, and benchmarked against PPO. ~20× score gain (5 → 90+) over 180k steps with LiDAR-based lap navigation.",
-      "OpenClaw Agent Automation — autonomous browser agents with DeepSeek API: JobsDB search, constraint filtering, tailored in-platform applications; Outlook Web scholarship-mail search and local archival with deduplication manifests and reusable runner scripts.",
-      "AI-powered food ordering website — Vue.js + TypeScript front end with Claude 3 Sonnet and DeepSeek-R1; 100% structured-task accuracy on Amazon Science evaluation, multi-turn dialogue handling, and deployment trade-off analysis.",
+      "World Model RL Race Track Simulation — DreamerV3 in PyTorch on racecar_gym (PyBullet, SingleAgentAustria-v0). Adapted r2dreamer, RSSM imagined rollouts, PPO baseline. ~20× score gain over 180k steps. github.com/asdasdsdsdasdasdasd/racecar",
+      "OpenClaw Agent Automation — DeepSeek-powered browser agents: JobsDB search, filtering, tailored applications; Outlook scholarship-mail archival with dedupe manifests. github.com/asdasdsdsdasdasdasd/openclaw-agent",
+      "MNIST Domain Adaptation — DANN (MNIST → DIDA) and CDAN-E (MNIST → MNIST-M) notebooks with source-only and baseline comparisons. github.com/asdasdsdsdasdasdasd/mnist-dann",
+      "AI-powered food ordering website — Vue.js + TypeScript with Claude 3 Sonnet and DeepSeek-R1; structured-task evaluation and multi-turn dialogue. github.com/asdasdsdsdasdasdasd/automated-food-ordering-website-SDSC4116",
     ],
   },
   {

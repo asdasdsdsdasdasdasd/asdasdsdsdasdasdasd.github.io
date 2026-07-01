@@ -21,17 +21,18 @@ const REVEAL_CONTENT = [
   },
   {
     upper: [
-      "Built a Go AI with ResNet and Monte Carlo Tree Search.",
-      "Spatial-temporal sentiment analysis on Yelp review data.",
-      "OpenClaw agents for job search and scholarship email workflows.",
+      "DreamerV3 world-model RL on racecar_gym (PyBullet, Austria track).",
+      "DANN / CDAN-E domain adaptation — MNIST → DIDA & MNIST-M.",
+      "OpenClaw LLM agents for JobsDB applications and scholarship mail.",
+      "Vue.js + LLM conversational food-ordering web app.",
     ],
-    lower: "Selected projects & automation",
+    lower: "Selected projects on GitHub",
   },
   {
     upper: [
       "Target roles: AI Engineer, ML Engineer, LLM Developer.",
-      "Skills: Python, TypeScript, deep learning, NLP, LLMs, SQL.",
-      "Fluent in English, Putonghua, and Cantonese.",
+      "Skills: Python, PyTorch, RL, LLM agents, Vue.js, TypeScript, web crawling.",
+      "Software engineer @ Visutech · MSc AI @ CUHK · fluent EN / 普 / 粤.",
     ],
     lower: "Open to Hong Kong ML / AI opportunities",
   },
@@ -48,21 +49,32 @@ const ITEMS = [
     id: "profile", label: "PROFILE", handle: "Wan Chi Wai", href: "mailto:chiwaiwan21@gmail.com", icon: "🎓", barIcon: icon1, bars: 1, newBars: [0], counts: ["CV"],
     links: ["mailto:chiwaiwan21@gmail.com"],
     stats: [
-      { tag: "EXP", value: "0yr", color: "#9147ff" },
+      { tag: "EXP", value: "1yr", color: "#9147ff" },
       { tag: "LOC", value: "HK",  color: "#bf94ff" },
     ],
   },
   {
-    id: "projects", label: "PROJECTS", handle: "@github", href: "https://github.com/asdasdsdsdasdasdasd", icon: "🛠", barIcon: icon2, bars: 3, newBars: [0, 1], counts: ["Go AI", "NLP", "Agents"],
-    links: ["github.com/asdasdsdsdasdasdasd/openclaw-agent", "github.com/asdasdsdsdasdasdasd", "github.com/asdasdsdsdasdasdasd/openclaw-agent"],
+    id: "projects", label: "PROJECTS", handle: "@github", href: "https://github.com/asdasdsdsdasdasdasd", icon: "🛠", barIcon: icon2, bars: 4, newBars: [0, 1, 2], counts: ["Racecar", "DANN", "Agents", "Food LLM"],
+    links: [
+      "github.com/asdasdsdsdasdasdasd/racecar",
+      "github.com/asdasdsdsdasdasdasd/mnist-dann",
+      "github.com/asdasdsdsdasdasdasd/openclaw-agent",
+      "github.com/asdasdsdsdasdasdasd/automated-food-ordering-website-SDSC4116",
+    ],
     stats: [
-      { tag: "AI", value: "RL", color: "#e1306c" },
-      { tag: "NLP", value: "LLM",  color: "#f77737" },
+      { tag: "RL", value: "WM", color: "#e1306c" },
+      { tag: "LLM", value: "AGT",  color: "#f77737" },
     ],
   },
   {
-    id: "skills", label: "SKILLS", handle: "ML stack", href: "https://github.com/asdasdsdsdasdasdasd", icon: "⚡", barIcon: icon3, bars: 5, newBars: [0, 2, 4], counts: ["Python", "TS", "DL", "SQL", "LLM"],
-    links: ["github.com/asdasdsdsdasdasdasd/openclaw-agent", "github.com/asdasdsdsdasdasdasd", "github.com/asdasdsdsdasdasdasd", "github.com/asdasdsdsdasdasdasd", "github.com/asdasdsdsdasdasdasd/openclaw-agent"],
+    id: "skills", label: "SKILLS", handle: "ML stack", href: "https://github.com/asdasdsdsdasdasdasd", icon: "⚡", barIcon: icon3, bars: 5, newBars: [0, 2, 4], counts: ["Python", "PyTorch", "RL", "Vue/TS", "Crawl"],
+    links: [
+      "github.com/asdasdsdsdasdasdasd/racecar",
+      "github.com/asdasdsdsdasdasdasd/mnist-dann",
+      "github.com/asdasdsdsdasdasdasd/racecar",
+      "github.com/asdasdsdsdasdasdasd/automated-food-ordering-website-SDSC4116",
+      "github.com/asdasdsdsdasdasdasd/openclaw-agent",
+    ],
     stats: [
       { tag: "PY", value: "✓", color: "#00f2ea" },
       { tag: "ML", value: "✓",  color: "#ff0050" },
