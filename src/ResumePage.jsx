@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CV_HTML, CV_PDF } from "./cvLinks";
 
 const ITEMS = [
   { id: "i", badge: "I", title: "EDUCATION", subtitle: "CUHK · CityU", rank: 1 },
@@ -461,6 +462,38 @@ export default function ResumePage({ src }) {
           color: #edfaff;
         }
 
+        .resume-cv-download {
+          position: absolute;
+          bottom: 4vh;
+          right: 4.5vw;
+          z-index: 14;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          pointer-events: all;
+        }
+        .resume-cv-btn {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 26px;
+          letter-spacing: 2px;
+          color: #041238;
+          background: #8ef5ff;
+          padding: 12px 20px;
+          text-decoration: none;
+          clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+          box-shadow: 8px 6px 0 rgba(214, 50, 50, 0.85);
+          transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .resume-cv-btn:hover {
+          transform: translateX(4px);
+          background: #fff;
+        }
+        .resume-cv-btn.secondary {
+          font-size: 20px;
+          background: rgba(142, 245, 255, 0.85);
+          box-shadow: 6px 4px 0 rgba(0, 6, 30, 0.55);
+        }
+
       `}</style>
 
       <div className="resume-overlay">
@@ -498,6 +531,15 @@ export default function ResumePage({ src }) {
         </div>
 
         <ResumeDetailPanel section={SECTION_CONTENT[active]} />
+
+        <div className="resume-cv-download">
+          <a className="resume-cv-btn" href={CV_PDF} download="Wan-Chi-Wai-CV.pdf">
+            ↓ DOWNLOAD CV (PDF)
+          </a>
+          <a className="resume-cv-btn secondary" href={CV_HTML} target="_blank" rel="noopener noreferrer">
+            VIEW CV (HTML)
+          </a>
+        </div>
       </div>
     </div>
   );

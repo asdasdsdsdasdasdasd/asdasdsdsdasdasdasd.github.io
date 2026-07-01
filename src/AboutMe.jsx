@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { CV_PDF } from "./cvLinks";
 import char1 from "./assets/char1.png";
 import char2 from "./assets/char2.png";
 import char3 from "./assets/char3.png";
@@ -16,7 +17,7 @@ const MAIN_IMAGES = [mainm, mainm2, mainf];
 
 const REVEAL_CONTENT = [
   {
-    upper: ["Wan Chi Wai", "Hong Kong · AI / ML"],
+    upper: ["Wan Chi Wai", "Hong Kong · AI / ML", "Data Scientist · ML / LLM Engineer"],
     lower: "MSc Artificial Intelligence @ CUHK · BSc Data & Systems Engineering @ CityU",
   },
   {
@@ -121,6 +122,11 @@ export default function AboutMe() {
             ))}
           </div>
           <div className="sc-reveal-lower-bar">{REVEAL_CONTENT[active].lower}</div>
+          {active === 0 && (
+            <a className="sc-cv-download" href={CV_PDF} download="Wan-Chi-Wai-CV.pdf">
+              ↓ DOWNLOAD CV (PDF)
+            </a>
+          )}
         </div>
       )}
       {revealed && (
@@ -315,6 +321,28 @@ export default function AboutMe() {
           letter-spacing: 0.4px;
           text-transform: lowercase;
           padding-left: 22px;
+        }
+        .sc-cv-download {
+          position: absolute;
+          top: 80%;
+          right: 0;
+          width: 48%;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 28px;
+          letter-spacing: 2px;
+          color: #041238;
+          background: #8ef5ff;
+          padding: 14px 22px;
+          text-decoration: none;
+          clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+          box-shadow: 8px 6px 0 #c4001a;
+          text-align: center;
+          pointer-events: all;
+          transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .sc-cv-download:hover {
+          transform: translateX(4px);
+          background: #fff;
         }
 
         @keyframes sc-right-nav-pop {

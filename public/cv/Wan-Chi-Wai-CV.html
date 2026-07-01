@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wan Chi Wai — CV</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+    :root {
+      --text: #2b2b2b;
+      --muted: #444;
+      --rule: #bdbdbd;
+      --page-max: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 11.5pt;
+      line-height: 1.45;
+      color: var(--text);
+      background: #ececec;
+      padding: 32px 16px;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      background: #fff;
+      padding: 42px 48px 36px;
+      box-shadow: 0 2px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      font-size: 28pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #333;
+      line-height: 1.1;
+    }
+
+    .header .title {
+      margin-top: 6px;
+      font-size: 11pt;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .header-rule {
+      border: none;
+      border-top: 1.5px solid #888;
+      margin: 16px 0 22px;
+    }
+
+    /* ── Two columns ── */
+    .columns {
+      display: grid;
+      grid-template-columns: 31% 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .section {
+      margin-bottom: 0;
+    }
+
+    .section + .section {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dotted var(--rule);
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* ── Left column ── */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10.5pt;
+      color: var(--muted);
+    }
+
+    .contact-list svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      fill: #555;
+    }
+
+    .skills-list,
+    .languages {
+      font-size: 10.5pt;
+      color: var(--muted);
+    }
+
+    .skills-list p + p {
+      margin-top: 4px;
+    }
+
+    .edu-block + .edu-block {
+      margin-top: 14px;
+    }
+
+    .edu-block .degree {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: #333;
+      line-height: 1.35;
+    }
+
+    .edu-block .school,
+    .edu-block .years {
+      font-size: 10.5pt;
+      color: var(--muted);
+    }
+
+    /* ── Right column ── */
+    .summary {
+      font-size: 10.5pt;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    .job + .job {
+      margin-top: 16px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .job-header .role {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: #333;
+    }
+
+    .job-header .dates {
+      font-size: 10pt;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .job-org {
+      font-size: 10.5pt;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .job ul,
+    .project ul {
+      margin-left: 18px;
+      padding: 0;
+    }
+
+    .job li,
+    .project li {
+      font-size: 10.5pt;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .project + .project {
+      margin-top: 14px;
+    }
+
+    .project .name {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .footer-rule {
+      border: none;
+      border-top: 1.5px solid #888;
+      margin-top: 28px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .page {
+        box-shadow: none;
+        padding: 24px 32px;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .section + .section {
+        margin-top: 16px;
+        padding-top: 16px;
+      }
+
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header class="header">
+      <h1>WAN CHI WAI</h1>
+      <p class="title">Data Scientist</p>
+    </header>
+
+    <hr class="header-rule" />
+
+    <div class="columns">
+      <!-- Left column -->
+      <aside>
+        <section class="section">
+          <h2 class="section-title">Contact</h2>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.5 3.1 3.7 5.3 6.8 6.8l2.3-2.3c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              +852 95146811
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              chiwaiwan21@gmail.com
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-list">
+            <p>Python, PyTorch, SQL</p>
+            <p>LLM Agents, Reinforcement Learning, Deep Learning</p>
+            <p>Vue.js, TypeScript, Web Crawling</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="edu-block">
+            <p class="degree">Bachelor of Science in Data and System Engineering</p>
+            <p class="school">City University of Hong Kong</p>
+            <p class="years">2021-2025</p>
+          </div>
+          <div class="edu-block">
+            <p class="degree">Master of Science in Artificial Intelligence</p>
+            <p class="school">Chinese University of Hong Kong</p>
+            <p class="years">2025-2027</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Languages</h2>
+          <p class="languages">Fluent in English, Putonghua and Cantonese</p>
+        </section>
+      </aside>
+
+      <!-- Right column -->
+      <main>
+        <section class="section">
+          <h2 class="section-title">Profile Summary</h2>
+          <p class="summary">
+            Graduated student in City University of Hong Kong with a degree in Data and System
+            Engineering and pursing a master degree in data science. Experienced in Machine
+            Learning, NLP, Reinforcement Learning, Image Classification, Deep Learning.
+            Looking for positions that are related to Machine Learning and AI development.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Work Experience</h2>
+
+          <div class="job">
+            <div class="job-header">
+              <span class="role">Internship</span>
+              <span class="dates">2024 Jul - 2024 Aug</span>
+            </div>
+            <p class="job-org">Department of Information and Technology - Hongrita Plastics Ltd. Zhongshan</p>
+            <ul>
+              <li>Daily operation on company's SAP system. Develop workflow on OA system and Retrieve data from SQL database</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-header">
+              <span class="role">Software engineer</span>
+              <span class="dates">2025 Sep - Present</span>
+            </div>
+            <p class="job-org">Visutech Asia Limited</p>
+            <ul>
+              <li>Develop IoT + Machine Learning solution for clients</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Hands-on Project</h2>
+
+          <div class="project">
+            <p class="name">World Model RL Race Track Simulation</p>
+            <ul>
+              <li>Implemented DreamerV3 world-model reinforcement learning in PyTorch on the racecar_gym PyBullet simulator (SingleAgentAustria-v0 F1Tenth-style track). Adapted r2dreamer with a custom environment interface, trained agents via RSSM imagined rollouts, and benchmarked against a PPO residual-learning baseline. Achieved ~20× score improvement (5 → 90+) over 180k steps with stable lap navigation using LiDAR perception.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <p class="name">OpenClaw Agent Automation</p>
+            <ul>
+              <li>Built autonomous browser agents on OpenClaw with DeepSeek API: JobsDB job search, constraint filtering, and tailored in-platform applications; plus Outlook Web scholarship-mail search and local archival with deduplication manifests. Includes reusable runner scripts and candidate-profile-driven prompt workflows.</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <p class="name">AI-powered automatic food ordering website</p>
+            <ul>
+              <li>Using Vue.js and TypeScript, integrating Claude 3 Sonnet and DeepSeek-R1 LLMs for conversational interfaces. Achieved 100% accuracy (Claude) in structured tasks via Amazon Science dataset evaluation, optimized multi-turn dialogue handling, and identified model limitations for real-world deployment.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <hr class="footer-rule" />
+  </article>
+</body>
+</html>
