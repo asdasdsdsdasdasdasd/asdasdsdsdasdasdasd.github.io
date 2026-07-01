@@ -50,7 +50,7 @@ export default function P3Menu({ onNavigate }) {
           z-index: 10;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           pointer-events: none;
         }
 
@@ -60,10 +60,10 @@ export default function P3Menu({ onNavigate }) {
         .p3-menu {
           position: relative;
           z-index: 20;
-          padding: 48px;
+          padding: 48px 48px 48px clamp(32px, 6vw, 96px);
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: flex-start;
           pointer-events: all;
         }
 
@@ -76,7 +76,7 @@ export default function P3Menu({ onNavigate }) {
           line-height: 1;
           text-decoration: none;
           opacity: 0;
-          transform: translateX(36px);
+          transform: translateX(-36px);
           transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.22,1,0.36,1);
         }
         .p3-row.mounted {
@@ -216,8 +216,8 @@ export default function P3Menu({ onNavigate }) {
 
       <div className="p3-overlay">
         <div className="p3-name-tag">
-          <span>jade's</span>
-          <span>persona</span>
+          <span>Wan Chi</span>
+          <span>Wai</span>
         </div>
         <div className="p3-stripe" />
         <div className="p3-stripe2" />
@@ -237,7 +237,7 @@ export default function P3Menu({ onNavigate }) {
                 href="#"
                 className={`p3-row ${isActive ? "active" : ""} ${mounted ? "mounted" : ""}`}
                 style={{
-                  marginRight: item.offsetX,
+                  marginLeft: item.offsetX,
                   marginTop: item.offsetY,
                   transitionDelay: mounted ? `${i * 80}ms` : "0ms",
                 }}

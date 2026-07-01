@@ -36,6 +36,8 @@ Live site: **https://asdasdsdsdasdasdasd.github.io**
 
 Assets live in `src/assets/` (from the template author's Google Drive bundle).
 
+**Background music:** `public/music/menu-bgm.mp3` — replace with your own track (e.g. Persona 3 menu BGM). Toggle with the **MUSIC** button or **M** key. Browsers require a click/keypress before audio starts.
+
 ## Credits
 
 Template by [blairxu13/persona3-website](https://github.com/blairxu13/persona3-website).

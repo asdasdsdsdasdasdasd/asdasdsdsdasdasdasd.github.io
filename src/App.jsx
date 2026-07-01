@@ -11,6 +11,7 @@ import PageTransition from './PageTransition'
 import Socials from './Socials'
 import AboutMe from './AboutMe'
 import ExternalPage from './ExternalPage'
+import BackgroundMusic from './BackgroundMusic'
 import './App.css'
 
 function MenuScreen() {
@@ -58,5 +59,10 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
-  return <AnimatedRoutes />
+  return (
+    <>
+      <BackgroundMusic />
+      <AnimatedRoutes />
+    </>
+  )
 }
