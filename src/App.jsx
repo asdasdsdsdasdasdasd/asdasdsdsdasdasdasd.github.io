@@ -1,7 +1,6 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import menuVideo from './assets/main1.mp4'
-import menuPoster from './assets/hero.png'
 import main1 from './assets/main1.mp4'
 import main2 from './assets/main1.mp4'
 import main3 from './assets/main1.mp4'
@@ -18,8 +17,8 @@ import './App.css'
 function MenuScreen() {
   const navigate = useNavigate()
   return (
-    <div id="menu-screen" style={{ backgroundImage: `url(${menuPoster})` }}>
-      <video src={menuVideo} poster={menuPoster} autoPlay loop muted playsInline preload="auto" />
+    <div id="menu-screen">
+      <video src={menuVideo} autoPlay loop muted playsInline />
       <P3Menu onNavigate={(page) => navigate(`/${page}`)} />
     </div>
   )

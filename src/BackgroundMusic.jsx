@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const BGM_SRC = `${import.meta.env.BASE_URL}music/menu-bgm.webm`;
 const STORAGE_KEY = "p3-bgm-muted";
-const DEFAULT_VOLUME = 0.14;
+const DEFAULT_VOLUME = 0.05;
 
 export default function BackgroundMusic() {
   const audioRef = useRef(null);
