@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const defaultBlocks = ["#0d1a3a", "#1a6aff", "#7dd4fc"];
 
@@ -135,22 +135,25 @@ function ResumeTransition() {
   ));
 }
 
+let siteHasLoaded = false;
+
 export default function PageTransition({ children, variant = "default" }) {
-  const location = useLocation();
+  const showTransition = siteHasLoaded;
+
+  useEffect(() => {
+    siteHasLoaded = true;
+  }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div key={location.pathname} style={{ position: "relative" }}>
-        <TransitionOverlay variant={variant} />
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2, delay: 0.18 }}
-        >
-          {children}
-        </motion.div>
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      {showTransition && <TransitionOverlay variant={variant} />}
+      <motion.div
+        initial={showTransition ? { opacity: 0 } : false}
+        animate={{ opacity: 1 }}
+        transition={{ duration: showTransition ? 0.2 : 0, delay: showTransition ? 0.18 : 0 }}
+      >
+        {children}
       </motion.div>
-    </AnimatePresence>
+    </div>
   );
 }
