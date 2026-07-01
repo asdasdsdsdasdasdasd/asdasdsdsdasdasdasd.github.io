@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const BGM_SRC = `${import.meta.env.BASE_URL}music/menu-bgm.mp3`;
+const BGM_SRC = `${import.meta.env.BASE_URL}music/menu-bgm.webm`;
 const STORAGE_KEY = "p3-bgm-muted";
 
 export default function BackgroundMusic() {
